@@ -1,0 +1,25 @@
+	    var itemRef2 = db.collection("test")
+            itemRef2.document("aaa").get()
+                    .addOnSuccessListener(object : OnSuccessListener<DocumentSnapshot>{
+                        override fun onSuccess(p0: DocumentSnapshot?) {
+                            
+                        }
+                    })
+                    .addOnFailureListener(object : OnFailureListener{
+                        override fun onFailure(p0: Exception) {
+                            
+                        }
+                    })
+
+            var query2 = itemRef2.whereEqualTo("aaa", "bbb")
+            query2.whereEqualTo("aaa", "bbb").get()
+                    .addOnCompleteListener(object : OnCompleteListener<QuerySnapshot>{
+                        override fun onComplete(p0: Task<QuerySnapshot>) {
+                            
+                        }
+                    })
+                    .addOnFailureListener(object : OnFailureListener{
+                        override fun onFailure(p0: Exception) {
+                            
+                        }
+                    })

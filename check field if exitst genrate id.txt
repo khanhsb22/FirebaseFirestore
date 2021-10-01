@@ -1,0 +1,19 @@
+	    var itemRef = db.collection("test")
+            var check = false
+            var query = itemRef.whereEqualTo("email", email)
+            query.get().addOnCompleteListener(object : OnCompleteListener<QuerySnapshot> {
+                override fun onComplete(p0: Task<QuerySnapshot>) {
+                    if (p0.isSuccessful) {
+                        for (snapShot in p0.result!!) {
+                            if (snapShot.exists()) {
+                                check = true
+                            }
+                        }
+                        if (check == true) {
+                            Toast.makeText(this@TestActivity, "Đã tồn tại", Toast.LENGTH_SHORT).show()
+                        } else {
+                            Toast.makeText(this@TestActivity, "Chưa tồn tại", Toast.LENGTH_SHORT).show()
+                        }
+                    }
+                }
+            })
